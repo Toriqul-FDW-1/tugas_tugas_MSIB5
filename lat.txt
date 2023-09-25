@@ -1,0 +1,14 @@
+Dari daftar mahasiswa dan nilai yang ada buatlah :
+
+1. Keterangan => ternary minimal nilai 60 dinyatakan lulus
+
+2. grade if multi kondisi => A, B, C, D, E
+
+3. Predikat Switch case dari Grade 
+
+4. Buat agregate nilai dan gunakan aggregate function di array serta tampilkan hasilnya pada 
+(tfoot) => nilai tertinggi, 
+    nilai terendah, 
+    nilai rata-rata, 
+    jumlah mahasiswa, 
+    jumlah keseluruhan nilai jika digabungkan
