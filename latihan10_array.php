@@ -20,12 +20,12 @@
     $sm2 = ['nim' => '2001010035', 'nama' => 'Ani', 'nilai' => 90];
     $sm3 = ['nim' => '2001010036', 'nama' => 'Abdi', 'nilai' => 85];
     $sm4 = ['nim' => '2001010037', 'nama' => 'Anggun', 'nilai' => 70];
-    $sm5 = ['nim' => '2001010038', 'nama' => 'furkon', 'nilai' => 65];
-    $sm6 = ['nim' => '2001010039', 'nama' => 'geby', 'nilai' => 50];
+    $sm5 = ['nim' => '2001010038', 'nama' => 'Feby', 'nilai' => 65];
+    $sm6 = ['nim' => '2001010039', 'nama' => 'Geby', 'nilai' => 50];
     $sm7 = ['nim' => '2001010040', 'nama' => 'Anisa', 'nilai' => 45];
-    $sm8 = ['nim' => '2001010041', 'nama' => 'yunita', 'nilai' => 35];
-    $sm9 = ['nim' => '2001010042', 'nama' => 'rohit', 'nilai' => 30];
-    $sm10 = ['nim' => '2001010043', 'nama' => 'bagus', 'nilai' => 80];
+    $sm8 = ['nim' => '2001010041', 'nama' => 'Yunita', 'nilai' => 35];
+    $sm9 = ['nim' => '2001010042', 'nama' => 'Rudi', 'nilai' => 30];
+    $sm10 = ['nim' => '2001010043', 'nama' => 'Farhan', 'nilai' => 80];
 
     $ar_judul = ['No', 'Nim', 'Nama Mahasiswa', 'Nilai', 'Keterangan', 'Grade', 'Predikat'];
     $mahasiswa = [$sm1, $sm2, $sm3, $sm4, $sm5, $sm6, $sm7, $sm8, $sm9, $sm10];

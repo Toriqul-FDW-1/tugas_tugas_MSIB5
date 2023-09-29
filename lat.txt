@@ -1,14 +1,7 @@
-Dari daftar mahasiswa dan nilai yang ada buatlah :
+Buatlah file yang berisi code form login 
 
-1. Keterangan => ternary minimal nilai 60 dinyatakan lulus
+Di form_login.php buat fungsi cekLogin($username, $password)
 
-2. grade if multi kondisi => A, B, C, D, E
+Di fungsi tersebut, cek username dan passwordnya
 
-3. Predikat Switch case dari Grade 
-
-4. Buat agregate nilai dan gunakan aggregate function di array serta tampilkan hasilnya pada 
-(tfoot) => nilai tertinggi, 
-    nilai terendah, 
-    nilai rata-rata, 
-    jumlah mahasiswa, 
-    jumlah keseluruhan nilai jika digabungkan
+Jika username = admin dan password = mimin diarahkan ke halaman landing page admin (buat file admin.php)
