@@ -1,10 +1,5 @@
 <?php
-include_once 'top.php';
-include_once 'koneksi.php';
-include_once 'models/Jenis_produk.php';
-include_once 'models/Kartu.php';
 include_once 'models/Produk.php';
-
 ?>
 <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -12,32 +7,22 @@ include_once 'models/Produk.php';
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="dashboard.php?url=dashboard">
+                            <a class="nav-link" href="index.php?url=dashboard">
+                            <!-- <a class="nav-link" href="index.html"> -->
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <a class="nav-link" href="produk.php?url=dashboard">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Produk
-                            </a>
-                            <a class="nav-link" href="jenis_produk.php?url=dashboard">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Jenis Produk
-                            </a>
-                            <a class="nav-link" href="kartu.php?url=dashboard">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Data Kartu
-                            </a>
-                            <!-- <div class="sb-sidenav-menu-heading">Interface</div>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Layouts
+                                Master Data
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                                    <a class="nav-link" href="index.php?url=produk">Produk</a>
+                                    <a class="nav-link" href="index.php?url=jenis_produk">Jenis Produk</a>
+                                    <a class="nav-link" href="index.php?url=kartu">Kartu Pelanggan</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -53,7 +38,7 @@ include_once 'models/Produk.php';
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
+                                            <a class="nav-link" href="login.php">Login</a>
                                             <a class="nav-link" href="register.html">Register</a>
                                             <a class="nav-link" href="password.html">Forgot Password</a>
                                         </nav>
@@ -79,14 +64,14 @@ include_once 'models/Produk.php';
                             <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
-                            </a> -->
+                            </a>
                         </div>
                     </div>
-                    
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        My Website
+                    </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                
-                    
-                

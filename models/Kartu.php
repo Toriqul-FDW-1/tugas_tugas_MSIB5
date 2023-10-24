@@ -5,17 +5,17 @@ class Kartu{
     public function __construct(){
         global $dbh;
         $this->koneksi = $dbh;
-
     }
 
-    //mengambil dan melihat tabel jenis_produk
-    public function dataJenis(){
+    // mengambil dan melihat table jenis_produk
+    public function dataKartu(){
         $sql = "SELECT * FROM kartu";
-        //menggunakan mekanisme prepare statement PDO
+        // menggunakan mekanisme prepare statement PDO
         $ps = $this->koneksi->prepare($sql);
         $ps->execute();
-        $ps = $ps->fetchAll();
-        return $ps;
+        $rs = $ps->fetchAll();
+        return $rs;
     }
 }
+
 ?>
