@@ -26,7 +26,7 @@ $data_produk = $model->dataProduk();
                 <!-- <i class="fas fa-table me-1"></i>
                 Data Table Produk -->
                 <a href="index.php?url=produk_form">
-                <button class="btn btn-sm btn-primary">Tambah </button></a>
+                    <button class="btn btn-sm btn-primary">Tambah </button></a>
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
@@ -43,19 +43,6 @@ $data_produk = $model->dataProduk();
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tfoot>
-                        <tr>
-                            <th>No</th>
-                            <th>Kode</th>
-                            <th>Nama</th>
-                            <th>Harga Beli</th>
-                            <th>Harga Jual</th>
-                            <th>Stok</th>
-                            <th>Minimal Stok</th>
-                            <th>Jenis Produk</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <?php
                         $no = 1;
@@ -71,14 +58,21 @@ $data_produk = $model->dataProduk();
                                 <td><?= $produk['min_stok'] ?></td>
                                 <td><?= $produk['jenis'] ?></td>
                                 <td>
-                                    <form>
+                                    <form action="produk_controller.php" method="POST">
                                         <a href="index.php?url=produk_detail&id=<?= $produk['id'] ?>">
-                                            <button type="button" class="btn btn-info">Detail</button>
+                                            <button type="button" class="btn btn-info btn-sm">Detail</button>
                                         </a>
+                                        <a href="index.php?url=produk_form&idedit=<?= $produk['id'] ?>">
+                                            <button type="button" class="btn btn-warning btn-sm">Edit</button>
+                                        </a>
+                                        <button type="submit" class="btn btn-danger btn-sm" name="proses" value="hapus" 
+                                        onclick="return confirm('anda yakin akan menghapus')">Delete</button>
+                                        <input type="hidden" name="idx" id="" value="<?= $produk['id'] ?>">
                                     </form>
                                 </td>
                             </tr>
                         <?php
+                            $no++;
                         }
                         ?>
                     </tbody>
