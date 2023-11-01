@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LihatNilaiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,25 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/salam', function () {
+    return "selamat belajar laravel";
+});
+
+//tambah routing
+Route::get('/staff/{nama}/{divisi}', function ($nama, $divisi) {
+    return 'Nama Pegawai : ' . $nama. '<br> Dapartemen :' . $divisi;
+});
+
+//routing dengan memmanggil nama file view dari view
+Route::get('/kondisi', function () {
+    return view('kondisi');
+});
+Route::get('/nilai', function () {
+    return view('coba.nilai');
+});
+
+//routing dengan view dan array data
+Route::get('/daftarnilai', function () {
+    return view('coba.daftar');
+});
+Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
