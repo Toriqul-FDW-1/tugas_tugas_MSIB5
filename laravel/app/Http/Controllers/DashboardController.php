@@ -10,7 +10,5 @@ class DashboardController extends Controller
     public function index() {
         return view('admin.dashboard'); //mengarahkan ke file dashboard yang ada di dalam folder admin
     }
-    public function home() {
-        return view('dash'); //mengarahkan ke file dashboard yang ada di dalam folder admin
-    }
+    
 }

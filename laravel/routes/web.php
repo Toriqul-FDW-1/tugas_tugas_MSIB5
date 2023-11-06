@@ -45,4 +45,3 @@ Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/notfound', [PagenotController::class, 'index']);
-Route::get('/home', [DashboardController::class, 'home']);
