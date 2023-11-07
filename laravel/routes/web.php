@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\KartuController;
 use App\Http\Controllers\PagenotController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,11 +46,18 @@ Route::get('/daftarnilai', function () {
 });
 Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
 
+
+Route::prefix('admin')->group(function(){
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/notfound', [PagenotController::class, 'index']);
 
 
-Route::resource('/kartu', KartuController::class);
+Route::resource('kartu', KartuController::class);
 
 Route::get('/jenis', [JenisProdukController::class, 'index']);
+
+Route::get('/produk', [ProdukController::class, 'index']);
+
+Route::resource('pelanggan', PelangganController::class);
+});

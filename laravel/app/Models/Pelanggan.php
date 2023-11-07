@@ -18,6 +18,6 @@ class Pelanggan extends Model
     //relasi antar table
     public function kartu()
     {
-        return $this->hasOne(Kartu::class);
+        return $this->belongsTo(Kartu::class);
     }
 }
