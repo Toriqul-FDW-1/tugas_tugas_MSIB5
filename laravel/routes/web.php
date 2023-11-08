@@ -55,7 +55,9 @@ Route::get('/notfound', [PagenotController::class, 'index']);
 
 Route::resource('kartu', KartuController::class);
 
-Route::get('/jenis', [JenisProdukController::class, 'index']);
+Route::get('/jenis_produk', [JenisProdukController::class, 'index']);
+Route::get('/jenis_produk/create', [JenisProdukController::class, 'create']);
+Route::get('/jenis_produk/store', [JenisProdukController::class, 'store']);
 
 Route::get('/produk', [ProdukController::class, 'index']);
 
