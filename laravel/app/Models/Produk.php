@@ -14,7 +14,7 @@ class Produk extends Model
     protected $fillabel = [
         'kode','nama','harga_beli','harga_jual','stok','min_stok','jenis_produk_id'
     ];
-    
+    public $timestamps = false;
     //relasi antar table one to many yang berhubungan dengan produk
     public function jenis_produk()
     {

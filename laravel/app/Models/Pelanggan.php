@@ -14,6 +14,7 @@ class Pelanggan extends Model
     protected $fillabel = [
         'kode','nama','jk','tmp_lahir','tgl_lahir','email','kartu_id'
     ];
+    public $timestamps = false;
     
     //relasi antar table
     public function kartu()

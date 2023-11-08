@@ -28,9 +28,24 @@ class JenisProdukController extends Controller
 
     }
 
+    public function show($id)
+    {
+        //
+    }
+
     public function edit($id){
 
         // $data = Jenis_produk::where('id', $id)->get();
         // return view('admin.edit', compact('data'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    public function destroy($id)
+    {
+        //
     }
 }

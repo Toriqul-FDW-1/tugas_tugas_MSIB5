@@ -6,7 +6,7 @@
 
 <h3 align="center">Form Input Jenis Produk</h3>
 <br>
-<form  method="$_POST" action="{{url('admin/jenis_produk/store')}}" enctype="multipart/form-data">
+<form  method="POST" action="{{url('admin/jenis_produk/store')}}" enctype="multipart/form-data">
     @csrf
     <div class="form-group row">
         <label for="text" class="col-3 col-form-label">Nama Jenis Produk</label>
