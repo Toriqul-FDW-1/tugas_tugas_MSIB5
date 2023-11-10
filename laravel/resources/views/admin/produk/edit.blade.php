@@ -17,7 +17,7 @@
     <div class="form-group row">
         <label for="text1" class="col-4 col-form-label">Nama</label>
         <div class="col-8">
-            <input id="text1" name="nama" type="text" class="form-control" value="{{$pr->nama}}" >
+            <input id="text1" name="nama" type="text" class="form-control" value="{{$pr->nama}}">
         </div>
     </div>
 
@@ -43,6 +43,23 @@
         <label for="text4" class="col-4 col-form-label">Minimal stok</label>
         <div class="col-8">
             <input id="text4" name="min_stok" type="text" class="form-control" value="{{$pr->min_stok}}">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="text4" class="col-4 col-form-label">Foto</label>
+        <div class="col-8">
+            <input id="text4" name="foto" type="file" class="form-control">
+            @if(!empty($pr->foto))
+            <img src="{{url('admin/img')}}/{{$pr->foto}}" width="300px" height="300px" alt="">
+
+            @endif
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label for="textarea" class="col-4 col-form-label">Deskripsi</label>
+        <div class="col-8">
+            <textarea id="textarea" name="deskripsi" cols="40" rows="5" class="form-control">{{$pr->deskripsi}}</textarea>
         </div>
     </div>
     <div class="form-group row">

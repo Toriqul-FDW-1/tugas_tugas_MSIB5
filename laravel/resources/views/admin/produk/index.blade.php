@@ -25,6 +25,8 @@
                         <th>Harga Jual</th>
                         <th>Stok</th>
                         <th>Minimal Stok</th>
+                        <th>Foto</th>
+                        <th>Deskripsi</th>
                         <th>Jenis Produk</th>
                         <th>Action</th>
                     </tr>
@@ -41,6 +43,8 @@
                         <td>{{$pr->harga_jual}}</td>
                         <td>{{$pr->stok}}</td>
                         <td>{{$pr->min_stok}}</td>
+                        <td>{{$pr->foto}}</td>
+                        <td>{{$pr->deskripsi}}</td>
                         <td>{{$pr->jenis}}</td>
                         <td>
                             <a href="{{url('admin/produk/show/'.$pr->id)}}" class="btn btn-sm btn-info"><i class="fas fa-eye"></i></a>
