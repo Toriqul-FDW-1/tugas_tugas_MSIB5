@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Jenis_produk extends Model
 {
     use HasFactory;
-    //mapping table
+    //mapping table 
     protected $table = 'jenis_produk';
     //mapping kolom atau field
-    protected $fillabel = ['nama'];
+    protected $fillable = ['nama'];
     public $timestamps = false;
-    //relasi antar table
+    //relasi antara table
 
     public function produk(){
         return $this->hasMany(Produk::class);
     }
+
 }

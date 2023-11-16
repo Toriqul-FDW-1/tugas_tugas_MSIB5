@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Db;
+use DB;
 use Illuminate\Support\Arr;
-
 class StaffSeeder extends Seeder
 {
     /**
@@ -14,10 +13,11 @@ class StaffSeeder extends Seeder
      */
     public function run(): void
     {
+        //
         for ($i=0; $i<=10; $i++){
             DB::table('staff')->insert([
                 'nip'=>rand(),
-                'nama'=>uniqid('name_'),
+                'name'=>uniqid('name_'),
                 'gender'=>Arr::random(['L', 'P']),
                 'alamat'=>uniqid('alamat_'),
                 'email'=>uniqid().'@gmail.com',
@@ -25,6 +25,6 @@ class StaffSeeder extends Seeder
                 'created_at'=>new \DateTime,
                 'updated_at'=>null,
             ]);
+        }
     }
-}
 }

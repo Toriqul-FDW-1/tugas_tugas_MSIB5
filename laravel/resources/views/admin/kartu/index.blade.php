@@ -15,17 +15,28 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
+                                        
                                         <tr>
                                             <th>No</th>
                                             <th>Kode</th>
                                             <th>Nama</th>
                                             <th>Diskon</th>
                                             <th>Iuran</th>
+                                            
                                         </tr>
                                     </thead>
+                                    <tfoot>
+                                        <tr>
+                                        <th>No</th>
+                                            <th>Kode</th>
+                                            <th>Nama</th>
+                                            <th>Diskon</th>
+                                            <th>Iuran</th>
+                                        </tr>
+                                    </tfoot>
                                     <tbody>
-                                    @php $no=1  @endphp
-                                        @foreach($kartu as $k)
+                                    @php $no=1 @endphp
+                                    @foreach ($kartu as $k)
                                     
                                         <tr>
                                             <td>{{$no++}}</td>
@@ -33,15 +44,17 @@
                                             <td>{{$k->nama}}</td>
                                             <td>{{$k->diskon}}</td>
                                             <td>{{$k->iuran}}</td>
+                                           
                                         </tr>
-                                    
+                                        
                                         @endforeach
-                                    
+                                       
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
-            
+                
+
 @endsection

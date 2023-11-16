@@ -8,16 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     use HasFactory;
-    //mapping table
     protected $table = 'produk';
-    //mapping kolom atau field
-    protected $fillabel = [
+    protected $fillable = [
         'kode','nama','harga_beli','harga_jual','stok','min_stok','jenis_produk_id'
     ];
-    public $timestamps = false;
-    //relasi antar table one to many yang berhubungan dengan produk
-    public function jenis_produk()
-    {
+
+    //relasi one to many ke table yang berhubungan dengan produk
+    public function jenis_produk(){
         return $this->belongsTo(Jenis_produk::class);
     }
+    //relasi one to one
+    // public function gaji(){
+    //     return $this->hasOne(Gaji::class);
+    // }
 }
