@@ -8,6 +8,7 @@ use App\Http\Controllers\KartuController;
 use App\Http\Controllers\JenisProdukController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\PelangganController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::get('/daftarnilai', function(){
 //routing manggil dari class controller
 Route::get('/datamahasiswa', [LihatNilaiController::class, 'dataMahasiswa']);
 
-
+Route::group(['middleware' => ['auth', 'peran:admin-manager-staff']], function(){
 Route::prefix('admin')->group(function(){
 Route::get('/dashboard', [DashboardController::class, 'index']);
 //contoh pemanggilan secara satu persatu function menggunakan get,put, update, delete
@@ -76,6 +77,7 @@ Route::post('/produk/import/', [ProdukController::class, 'importProduk']);
 
 Route::resource('pelanggan', PelangganController::class);
 
+});
 });
 Auth::routes();
 
