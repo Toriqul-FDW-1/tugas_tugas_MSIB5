@@ -224,10 +224,10 @@ class ProdukController extends Controller
     }
     public function importProduk(Request $request) 
     {
-        $file = $request->file('file');
-        $nama_file = rand().$file->getClientOriginalName();
-        $file->move(public_path('/file_excel'), $nama_file);
-        Excel::import(new ProdukImport, public_path('/file_excel'. '/' .$nama_file));
+        // $file = $request->file('file');
+        // $nama_file = rand().$file->getClientOriginalName();
+        // $file->move(public_path('/file_excel'), $nama_file);
+        // Excel::import(new ProdukImport, public_path('/file_excel'. '/' .$nama_file));
 
         Excel::import(new ProdukImport, $request->file('file')->store('temp'));
     
