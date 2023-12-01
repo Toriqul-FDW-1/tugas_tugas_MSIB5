@@ -4,7 +4,7 @@ namespace App\Imports;
 
 use App\Models\Produk;
 use Maatwebsite\Excel\Concerns\ToModel;
-
+// use Illuminate\Support\Facades\Hash;
 
 class ProdukImport implements ToModel
 {
@@ -23,6 +23,7 @@ class ProdukImport implements ToModel
             'harga_jual' => $row[4],
             'stok' => $row[5],
             'min_stok' => $row[6],
+            
             'jenis_produk_id' => $row[7],
         ]);
     }

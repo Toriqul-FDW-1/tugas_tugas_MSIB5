@@ -16,7 +16,7 @@ class ProdukExport implements FromCollection, WithHeadings
         // return Produk::all();
         $produk = Produk::join('jenis_produk', 'jenis_produk_id', '=', 'jenis_produk.id')
         ->select('produk.kode','produk.nama','produk.harga_beli','produk.harga_jual',
-        'produk.stok','produk.min_stok', 'jenis_produk.nama as jenis')
+         'produk.stok','produk.min_stok', 'jenis_produk.nama as jenis')
         ->get();
         return $produk;
     }
