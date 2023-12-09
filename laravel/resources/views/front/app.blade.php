@@ -17,11 +17,21 @@
     <meta name="description" content="" />
     <meta name="keywords" content="bootstrap, bootstrap4" />
 
+    {{-- midtrans --}}
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="{{ config('midtrans.client_key') }}"></script>
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('front/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('front/css/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('front/css/style.css') }}" rel="stylesheet">
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> --}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('front/css/style1.css') }}">
     <title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
 </head>
 
@@ -39,35 +49,116 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsFurni">
-                <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+                <ul class="custom-navbar-nav navbar-nav ms-auto mt-4 ">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
-                    <li><a class="nav-link" href="shop.html">Shop</a></li>
+                    @auth
+                        <li><a class="nav-link" href="{{ url('/shop') }}">Shop</a></li>
+                    @endauth
                     <li><a class="nav-link" href="about.html">About us</a></li>
                     <li><a class="nav-link" href="services.html">Services</a></li>
                     <li><a class="nav-link" href="blog.html">Blog</a></li>
                     <li><a class="nav-link" href="contact.html">Contact us</a></li>
-                </ul>
+                    @if (Route::has('login'))
+                    @auth
+                    @if (Auth::user()->role == 'admin')
+                    <li><a class="nav-link" href="{{ url('admin/dashboard') }}">Dashboard</a></li>
+                    @endif
+                    @if (Auth::user()->name === null)
+                    <li>
+                        <strong class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->email }}
+                        </strong>
+                    
+                    </li>
+                    @else
+                    <li>
+                        <strong class="nav-link " role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
 
+                        </strong>
+                    </li>
+
+                    @endif
+                    <li>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('frmlogout').submit();" class="nav-link">Logout</a>
+                        <form id="frmlogout" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
+                        
+                    </li>
+                  
+                    <!-- cart -->
+                    <div class="dropdown " >
+                        <button type="button" class="btn btn-primary " data-toggle="dropdown">
+                            <i class="fa fa-shopping-cart " aria-hidden="true"></i> Cart <span class="badge badge-pill badge-warning">{{ count((array) session('cart')) }}</span>
+
+                        </button>
+                        <div class="dropdown-menu ">
+                            <div class="row total-header-section">
+                                <div class="col-lg-6 col-sm-6 col-6  ">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-warning">{{ count((array) session('cart')) }}</span>
+                                </div>
+                                @php $total = 0 @endphp
+                                @foreach ((array) session('cart') as $id => $details)
+                                @php $total += $details['harga_jual'] * $details['quantity'] @endphp
+                                @endforeach
+                                <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                                    <p>Total: <br> <span class=""> Rp. {{ $total }}</span> </p>
+
+                                </div>
+                            </div>
+                            @if (session('cart'))
+                            @foreach (session('cart') as $id => $details)
+                            <div class="row cart-detail">
+                                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                                    @empty($details['foto'])
+                                    <img src="{{ url('admin/img/nophoto.jpg') }}" />
+                                    @else
+                                    <img src="{{ asset('admin/img') }}/{{ $details['foto'] }}" />
+                                    @endempty
+
+                                </div>
+                                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                                    <p>{{ $details['nama'] }}</p>
+                                    <span class="price text-danger"> Rp. {{ $details['harga_jual'] }}</span> <span class="count"> Quantity:{{ $details['quantity'] }}</span>
+                                </div>
+                            </div>
+                            @endforeach
+                            @endif
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                                    <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- endcart -->
+                 
+                   
+                </ul>
+                @else
                 <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                    <li><a class="nav-link" href="{{ route('login') }}"><img
-                                src="{{ asset('front/images/user.svg') }}"></a></li>
-                    <li><a class="nav-link" href="cart.html"><img src="{{ asset('front/images/cart.svg') }}"></a></li>
-                    <li><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt fa-lg" style="color: #ffffff; margin-left:8px"></i></a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}"><img src="{{ asset('front/images/user.svg') }}"></a></li>
 
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
                 </ul>
+
+                @endauth
+                @endif
+                {{-- batas cart --}}
             </div>
         </div>
-
     </nav>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 
 
     @yield('front')
+
 
 
 
@@ -75,14 +166,14 @@
         <div class="container relative">
 
             <div class="sofa-img">
-                <img src="images/sofa.png" alt="Image" class="img-fluid">
+                <img src="{{ asset('front/images/sofa.png') }}" alt="Image" class="img-fluid">
             </div>
 
             <div class="row">
                 <div class="col-lg-8">
                     <div class="subscription-form">
                         <h3 class="d-flex align-items-center"><span class="me-1"><img
-                                    src="images/envelope-outline.svg" alt="Image"
+                                    src="{{ asset('front/images/envelope-outline.svg') }}" alt="Image"
                                     class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
 
                         <form action="#" class="row g-3">
@@ -184,9 +275,8 @@
 
         </div>
     </footer>
-    <!-- End Footer Section -->
-
-
+    
+    @yield('scripts')
     <script src="{{ asset('front/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('front/js/tiny-slider.js') }}"></script>
     <script src="{{ asset('front/js/custom.js') }}"></script>

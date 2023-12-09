@@ -133,7 +133,7 @@ class ProdukController extends Controller
             'harga_jual' => 'required|numeric',
             'stok' => 'required|numeric',
             'min_stok' => 'required|numeric',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,gif,png,svg|max:2048',
+            'foto' => 'nullable|image|mimes:jpg,jpeg,gif,png,svg,webp|max:5000',
             'deksripsi' => 'nullable|string|min:10',
             'jenis_produk_id' => 'required|integer',
         ],
@@ -146,8 +146,8 @@ class ProdukController extends Controller
             'harga_jual.numeric' => 'harus angka',
             'stok.required' => 'Stok harus diisi',
             'min_stok.required' => 'Minimal stok harus terisi',
-            'foto.max' => 'Maksimal 2 MB',
-            'foto.image' => 'File ekstensi harus jpg,jpeg, png, gif, svg',
+            'foto.max' => 'Maksimal 5 MB',
+            'foto.image' => 'File ekstensi harus jpg,jpeg, png, gif, svg, webp',
         ] 
     );
         //update foto
@@ -230,8 +230,34 @@ class ProdukController extends Controller
         // $file->move('file_excel', $nama_file);
         // Excel::import(new ProdukImport, public_path('/file_excel'.$nama_file));
         Excel::import(new ProdukImport, $request->file('file')->store('temp'));
-      
+    
         
         return redirect('admin/produk')->with('success', 'Produk Berhasil diimport!');
+    }
+
+    public function apiProduk(){
+        $produk = Produk::all();
+        return response()->json([
+            'success'=>true,
+            'message'=>'Data Produk',
+            'data'=>$produk
+        ],200
+        );
+    }
+    public function apiProdukDetail($id){
+        $produk = Produk::find($id);
+        if($produk){
+            return response()->json([
+                'success' => true,
+                'message'=> 'Detail Produk',
+                'data'=>$produk
+            ], 200);
+        }
+        else {
+            return response()->json([
+                'success'=> false,
+                'message'=>'Detail Produk Tidak ditemukan'
+            ], 404);
+        }
     }
 }
